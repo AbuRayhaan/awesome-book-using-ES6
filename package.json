@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/AbuRayhaan/awesome-book-using-ES6/issues"
   },
-  "homepage": "https://github.com/AbuRayhaan/awesome-book-using-ES6#readme"
+  "homepage": "https://github.com/AbuRayhaan/awesome-book-using-ES6#readme",
+  "dependencies": {
+    "luxon": "^2.3.2"
+  }
 }

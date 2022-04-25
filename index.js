@@ -4,7 +4,7 @@ import displayBooks from './modules/displayBooks.js';
 
 // let books = JSON.parse(localStorage.getItem('books'));
 const addButton = document.querySelector('#add-book');
-//const bookList = document.querySelector('#books-list');
+// const bookList = document.querySelector('#books-list');
 
 /*  Error Message Declaration required before usage */
 /*

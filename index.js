@@ -1,16 +1,22 @@
-let books = JSON.parse(localStorage.getItem('books'));
+import { DateTime } from './luxon.js';
+import Book from './modules/book.js';
+import displayBooks from './modules/displayBooks.js';
+
+// let books = JSON.parse(localStorage.getItem('books'));
 const addButton = document.querySelector('#add-book');
-const bookList = document.querySelector('#books-list');
+//const bookList = document.querySelector('#books-list');
 
 /*  Error Message Declaration required before usage */
+/*
 const ErrorMsg = (error) => {
   document.querySelector('.error-msg').innerHTML = error;
   setTimeout(() => {
     document.querySelector('.error-msg').innerHTML = '';
   }, 2000);
 };
-
+*/
 /*  Declaring the class first */
+/*
 class Book {
   constructor(id, title, author) {
     this.id = id;
@@ -51,8 +57,9 @@ class Book {
     localStorage.setItem('books', JSON.stringify(books));
   }
 }
-
+*/
 /*  DOM ELEMENTS  */
+/*
 const displayBooks = (id, title, author) => {
   bookList.classList.add('booklist-border');
   const li = document.createElement('li');
@@ -81,11 +88,20 @@ const displayBooks = (id, title, author) => {
     }
   });
 };
+*/
 
+const bookList = document.querySelector('#books-list');
 if (bookList !== null) {
   bookList.classList.add('list-border');
 } else {
   bookList.classList.remove('list-border');
+}
+
+const books = JSON.parse(localStorage.getItem('books'));
+if (books !== null) {
+  books.forEach((book) => {
+    displayBooks(book.id, book.title, book.author);
+  });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -102,16 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-if (books !== null) {
-  books.forEach((book) => {
-    displayBooks(book.id, book.title, book.author);
-  });
-}
-
 /*  NAVIGATION-BAR  */
 const date = document.getElementById('date');
-const dateNow = new Date();
-date.innerText = dateNow;
+const now = DateTime.now();
+date.innerText = now.toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
 
 const listBooks = document.getElementById('listBooks');
 const addBook = document.getElementById('addBook');

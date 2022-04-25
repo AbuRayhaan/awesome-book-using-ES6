@@ -2,95 +2,9 @@ import { DateTime } from './luxon.js';
 import Book from './modules/book.js';
 import displayBooks from './modules/displayBooks.js';
 
-// let books = JSON.parse(localStorage.getItem('books'));
 const addButton = document.querySelector('#add-book');
-// const bookList = document.querySelector('#books-list');
-
-/*  Error Message Declaration required before usage */
-/*
-const ErrorMsg = (error) => {
-  document.querySelector('.error-msg').innerHTML = error;
-  setTimeout(() => {
-    document.querySelector('.error-msg').innerHTML = '';
-  }, 2000);
-};
-*/
-/*  Declaring the class first */
-/*
-class Book {
-  constructor(id, title, author) {
-    this.id = id;
-    this.title = title;
-    this.author = author;
-  }
-
-  addBooks() {
-    const { id, title, author } = this;
-    const object = { id, title, author };
-    books = JSON.parse(localStorage.getItem('books'));
-    if (title === '' || author === '') {
-      ErrorMsg('Kindly fill the fields');
-    } else if (books !== null) {
-      books.push(object);
-      localStorage.setItem('books', JSON.stringify(books));
-      books = JSON.parse(localStorage.getItem('books'));
-      document.getElementById('bookTitle').value = '';
-      document.getElementById('bookAuthor').value = '';
-    } else {
-      books = [];
-      books.push(object);
-      localStorage.setItem('books', JSON.stringify(books));
-      books = JSON.parse(localStorage.getItem('books'));
-      document.getElementById('bookTitle').value = '';
-      document.getElementById('bookAuthor').value = '';
-    }
-  }
-
-  removeBook() {
-    const { id } = this;
-    books = books.filter((book) => {
-      if (book.id !== id) {
-        return true;
-      }
-      return false;
-    });
-    localStorage.setItem('books', JSON.stringify(books));
-  }
-}
-*/
-/*  DOM ELEMENTS  */
-/*
-const displayBooks = (id, title, author) => {
-  bookList.classList.add('booklist-border');
-  const li = document.createElement('li');
-  const removeButton = document.createElement('button');
-  removeButton.textContent = 'Remove';
-
-  li.innerHTML = `<div class= "book-info">
-      <p>"${title}"</p>
-      <span>by</span>
-      <p>${author}</p>
-      </div>
-    `;
-  li.appendChild(removeButton);
-  bookList.appendChild(li);
-
-  removeButton.addEventListener('click', () => {
-    const book = new Book(id, title, author);
-    id = removeButton.id;
-    book.removeBook();
-    if (li.nextElementSibling === null && li.previousElementSibling === null) {
-      li.remove();
-      bookList.classList.remove('booklist-border');
-    } else {
-      li.remove();
-      bookList.classList.add('booklist-border');
-    }
-  });
-};
-*/
-
 const bookList = document.querySelector('#books-list');
+
 if (bookList !== null) {
   bookList.classList.add('list-border');
 } else {
@@ -118,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-/*  NAVIGATION-BAR  */
 const date = document.getElementById('date');
 const now = DateTime.now();
 date.innerText = now.toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
